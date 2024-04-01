@@ -1,5 +1,5 @@
 import { getToken } from '/@/utils/auth';
-
+import { message } from 'ant-design-vue';
 /**
  * 薪资计算接口
  * @param params
@@ -26,17 +26,11 @@ export async function getSalary(yearmonth: string) {
     console.log("Response text:", text);
     const data = JSON.parse(text);
     console.log("Parsed data:", data);
+    message.success(data);
     return data;
   } catch (error) {
     console.error('Fetch error:', error);
+    message.error(data);
     throw error; // 继续抛出错误，以便调用者可以处理
   }
 }
-
-
-
-
-
-
-
-
